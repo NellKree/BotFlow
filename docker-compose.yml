@@ -1,0 +1,24 @@
+services:
+  gateway:
+    build: ./backend/gateway
+    container_name: gateway
+    ports:
+      - "8000:8000"
+    networks:
+      - botnet
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - botnet
+    stdin_open: true
+    tty: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+
+networks:
+  botnet:
