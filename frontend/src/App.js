@@ -46,7 +46,7 @@ function App() {
     };
 
     useEffect(() => {
-        fetch("http://localhost:8000/status")
+        fetch(`${process.env.REACT_APP_GATEWAY_URL}/status`)
             .then((res) => res.json())
             .then((data) => {
                 setStatus(data.message || "Нет ответа от сервера");
@@ -55,6 +55,7 @@ function App() {
                 setStatus("Ошибка запроса к серверу");
             });
     }, []);
+
 
     return (
         <div style={{ padding: "2rem", fontFamily: "Arial, sans-serif", maxWidth: "800px", margin: "0 auto" }}>
