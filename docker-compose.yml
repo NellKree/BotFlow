@@ -1,24 +1,35 @@
 services:
   gateway:
     build: ./backend/gateway
-    container_name: gateway
+    container_name: botflow-gateway
     ports:
-      - "8000:8000"
+      - "${GATEWAY_PORT}:8000"
+    env_file:
+      - .env
+    networks:
+      - botnet
+
+  youtube_scraper:
+    build: ./backend/scraper_youtube
+    container_name: botflow-youtube
+    ports:
+      - "${YOUTUBE_PORT}:8080"
+    env_file:
+      - .env
     networks:
       - botnet
 
   frontend:
-    build:
-      context: ./frontend
-    container_name: frontend
+    build: ./frontend
+    container_name: botflow-frontend
     ports:
-      - "3000:3000"
+      - "${FRONTEND_PORT}:3000"
+    env_file:
+      - .env
     networks:
       - botnet
     stdin_open: true
     tty: true
-    environment:
-      - CHOKIDAR_USEPOLLING=true
 
 networks:
   botnet:
