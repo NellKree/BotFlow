@@ -5,28 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71ee7474-4b3c-402b-8066-f73de6d20940" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../backend/gateway/services.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../backend/scraper_instagram/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../backend/scraper_instagram/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../backend/scraper_instagram/.idea/scraper_instagram.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../backend/scraper_instagram/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../backend/scraper_instagram/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../backend/scraper_instagram/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../backend/scraper_instagram/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../backend/scraper_instagram/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Footer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Navbar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/InstagramPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/YouTubePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/BotFlow.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/BotFlow.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/gateway/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/gateway/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/gateway/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/gateway/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/bot_detector/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/bot_detector/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/bot_detector/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/bot_detector/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/scraper_youtube/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/scraper_youtube/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/YouTubePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/YouTubePage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +74,7 @@
       <workItem from="1746570426184" duration="6682000" />
       <workItem from="1746625743118" duration="363000" />
       <workItem from="1746832494052" duration="1946000" />
-      <workItem from="1747062370381" duration="1380000" />
+      <workItem from="1747062370381" duration="6079000" />
     </task>
     <servers />
   </component>

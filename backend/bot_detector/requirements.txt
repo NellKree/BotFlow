@@ -4,3 +4,9 @@ sqlalchemy
 psycopg2-binary
 python-dotenv
 pydantic
+pyyaml
+pandas
+google-api-python-client
+scikit-learn
+numpy
+xgboost

@@ -1,10 +1,31 @@
-// src/pages/YouTubePage.js
 import React, { useState } from 'react';
+import {
+    PieChart,
+    Pie,
+    Cell,
+    Tooltip,
+    Legend
+} from 'recharts';
+
+import {
+    LineChart,
+    Line,
+    XAxis,
+    YAxis,
+    CartesianGrid,
+    ResponsiveContainer,
+    BarChart,
+    Bar
+} from 'recharts';
+
 
 const YouTubePage = () => {
     const [url, setUrl] = useState('');
     const [comments, setComments] = useState([]);
     const [error, setError] = useState(null);
+    const [isFetched, setIsFetched] = useState(false);
+    const [showAnalysis, setShowAnalysis] = useState(false);
+    const [analysisResults, setAnalysisResults] = useState([]);
     const baseUrl = process.env.REACT_APP_GATEWAY_URL || "http://localhost:8000";
 
     const extractVideoId = (link) => {
@@ -28,19 +49,92 @@ const YouTubePage = () => {
             .then(data => {
                 if (data.comments) {
                     setComments(data.comments);
+                    setIsFetched(true);
                     setError(null);
                 } else {
                     setError("Ошибка: " + (data.error || "неизвестно"));
-                    setComments([]);
+                    setIsFetched(false);
                 }
             })
             .catch(() => {
                 setError("Ошибка запроса к серверу");
+                setIsFetched(false);
             });
     };
 
+    const startAnalysis = () => {
+        setTimeout(() => {
+            const bots = comments.filter(comment => comment.is_bot);
+            setAnalysisResults(bots);
+            setShowAnalysis(true);
+        }, 1500); // Можно уменьшить задержку для тестов
+    };
+    const getLengthDistribution = () => {
+        const bins = {
+            '0–10': { bots: 0, users: 0 },
+            '11–30': { bots: 0, users: 0 },
+            '31–50': { bots: 0, users: 0 },
+            '51–100': { bots: 0, users: 0 },
+            '100+': { bots: 0, users: 0 }
+        };
+
+        comments.forEach(comment => {
+            const len = comment.text.length;
+            let binKey;
+
+            if (len <= 10) binKey = '0–10';
+            else if (len <= 30) binKey = '11–30';
+            else if (len <= 50) binKey = '31–50';
+            else if (len <= 100) binKey = '51–100';
+            else binKey = '100+';
+
+            if (comment.is_bot) {
+                bins[binKey].bots += 1;
+            } else {
+                bins[binKey].users += 1;
+            }
+        });
+
+        return Object.entries(bins).map(([range, counts]) => ({
+            range,
+            bots: counts.bots,
+            users: counts.users
+        }));
+    };
+    // Подсчёт статистики для диаграммы
+    const getTotalCount = () => {
+        const total = comments.length;
+        const botCount = analysisResults.length;
+        const normalCount = total - botCount;
+
+        return [
+            { name: "Боты", value: botCount },
+            { name: "Нормальные", value: normalCount }
+        ];
+    };
+    const groupByHour = (commentsList) => {
+        const grouped = {};
+
+        commentsList.forEach(comment => {
+            const date = new Date(comment.published_at);
+            const hour = `${date.toISOString().split('T')[0]} ${date.getHours()}:00`; // YYYY-MM-DD HH:00
+
+            if (!grouped[hour]) grouped[hour] = { hour: hour, bots: 0, users: 0 };
+            if (comment.is_bot) {
+                grouped[hour].bots += 1;
+            } else {
+                grouped[hour].users += 1;
+            }
+        });
+
+        return Object.values(grouped).sort((a, b) => new Date(a.hour) - new Date(b.hour));
+    };
+    
+
+    const COLORS = ['#ff4d4f', '#4CAF50'];
+
     return (
-        <div style={{ padding: "2rem", maxWidth: "800px", margin: "0 auto" }}>
+        <div style={{ padding: "2rem", maxWidth: "1000px", margin: "0 auto" }}>
             <h1>Комментарии к видео YouTube</h1>
             <input
                 type="text"
@@ -59,28 +153,120 @@ const YouTubePage = () => {
 
             {error && <p style={{ color: "red", marginTop: "1rem" }}>{error}</p>}
 
-            <div style={{ marginTop: "2rem" }}>
-                {comments.map((comment, idx) => (
-                    <div key={idx} style={{
-                        display: "flex",
-                        gap: "1rem",
-                        borderBottom: "1px solid #ccc",
-                        padding: "1rem 0"
-                    }}>
-                        <img
-                            src={comment.profileImage}
-                            alt={comment.author}
-                            style={{ width: "48px", height: "48px", borderRadius: "50%" }}
-                        />
-                        <div>
-                            <strong>{comment.author}</strong> <br />
-                            <small>{new Date(comment.publishedAt).toLocaleString()}</small>
-                            <p>{comment.text}</p>
-                            <p>👍 {comment.likeCount}</p>
-                        </div>
+            {isFetched && !showAnalysis && (
+                <div style={{ marginTop: "1rem" }}>
+                    <p>✅ Комментарии успешно собраны</p>
+                    <button
+                        onClick={startAnalysis}
+                        style={{
+                            padding: "0.5rem 1rem",
+                            backgroundColor: "#28a745",
+                            color: "white",
+                            border: "none",
+                            cursor: "pointer",
+                            marginTop: "1rem"
+                        }}
+                    >
+                        Начать анализ
+                    </button>
+                </div>
+            )}
+
+            {showAnalysis && (
+                <>
+                    {/* Круговая диаграмма */}
+                    <div style={{ width: "100%", height: 300, marginTop: "2rem" }}>
+                        <h2 style={{ textAlign: "center" }}>Распределение комментариев</h2>
+                        <ResponsiveContainer width="100%" height={300}>
+                            <PieChart>
+                                <Pie
+                                    data={getTotalCount()}
+                                    cx="50%"
+                                    cy="50%"
+                                    labelLine={false}
+                                    outerRadius={80}
+                                    fill="#8884d8"
+                                    dataKey="value"
+                                    label={({ name, percent }) =>
+                                        `${name}: ${(percent * 100).toFixed(0)}%`
+                                    }
+                                >
+                                    {getTotalCount().map((entry, index) => (
+                                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                                    ))}
+                                </Pie>
+                                <Tooltip />
+                                <Legend />
+                            </PieChart>
+                        </ResponsiveContainer>
                     </div>
-                ))}
-            </div>
+
+                    {/* Линейный график по времени */}
+                    <div style={{ width: "100%", height: 300, marginTop: "2rem" }}>
+                        <h2 style={{ textAlign: "center" }}>Распределение по времени</h2>
+                        <ResponsiveContainer width="100%" height={300}>
+                            <LineChart
+                                data={groupByHour(comments)}
+                                margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+                            >
+                                <CartesianGrid strokeDasharray="3 3" />
+                                <XAxis dataKey="date" />
+                                <YAxis />
+                                <Tooltip />
+                                <Legend />
+                                <Line type="monotone" dataKey="bots" name="Боты" stroke="#ff4d4f" activeDot={{ r: 8 }} />
+                                <Line type="monotone" dataKey="users" name="Пользователи" stroke="#4CAF50" />
+                            </LineChart>
+                        </ResponsiveContainer>
+                    </div>
+                    {/* Гистограмма длины комментариев */}
+                    <div style={{ width: "100%", height: 300, marginTop: "2rem" }}>
+                        <h2 style={{ textAlign: "center" }}>Гистограмма длины комментариев</h2>
+                        <ResponsiveContainer width="100%" height={300}>
+                            <BarChart data={getLengthDistribution()}>
+                                <CartesianGrid strokeDasharray="3 3" />
+                                <XAxis dataKey="range" />
+                                <YAxis />
+                                <Tooltip />
+                                <Legend />
+                                <Bar dataKey="bots" name="Боты" fill="#ff4d4f" />
+                                <Bar dataKey="users" name="Пользователи" fill="#4CAF50" />
+                            </BarChart>
+                        </ResponsiveContainer>
+                    </div>
+
+                    {/* Таблица с ботами */}
+                    {analysisResults.length > 0 && (
+                        <div style={{ marginTop: "2rem" }}>
+                            <h2>Обнаруженные боты ({analysisResults.length})</h2>
+                            <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                                <thead>
+                                <tr style={{ borderBottom: "2px solid #ccc" }}>
+                                    <th style={{ textAlign: "left", padding: "0.5rem" }}>Автор</th>
+                                    <th style={{ textAlign: "left", padding: "0.5rem" }}>Текст</th>
+                                    <th style={{ textAlign: "left", padding: "0.5rem" }}>Лайков</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {analysisResults.map((comment, idx) => (
+                                    <tr key={idx} style={{ borderBottom: "1px solid #eee" }}>
+                                        <td style={{ padding: "0.5rem" }}>
+                                            <strong>{comment.author}</strong>
+                                        </td>
+                                        <td style={{ padding: "0.5rem" }}>{comment.text}</td>
+                                        <td style={{ padding: "0.5rem" }}>{comment.like_count}</td>
+                                    </tr>
+                                ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    )}
+
+                    {analysisResults.length === 0 && (
+                        <p style={{ marginTop: "1rem" }}>Боты не обнаружены.</p>
+                    )}
+                </>
+            )}
         </div>
     );
 };

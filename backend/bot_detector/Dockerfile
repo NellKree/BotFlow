@@ -1,9 +1,15 @@
-FROM python:3.11
+# Берём официальный Python-образ
+FROM python:3.11-slim
 
+# Рабочая директория внутри контейнера
 WORKDIR /app
 
-COPY . .
-
+# Копируем зависимости и устанавливаем их
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8090"]
+# Копируем весь код проекта
+COPY . .
+
+# Команда для запуска приложения
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
