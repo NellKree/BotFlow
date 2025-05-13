@@ -5,13 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71ee7474-4b3c-402b-8066-f73de6d20940" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../backend/bot_detector/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/bot_detector/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/bot_detector/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/bot_detector/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/scraper_youtube/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/scraper_youtube/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/scraper_twitch/.idea/scraper_twitch.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/scraper_twitch/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/scraper_twitch/crud.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/scraper_twitch/database.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/scraper_twitch/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/scraper_twitch/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/scraper_twitch/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/scraper_twitch/twitch_bot.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/TwitchPage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/TwitchPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/gateway/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/gateway/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/gateway/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/gateway/services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/YouTubePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/YouTubePage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,25 +43,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Node.js.index.js.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "dev",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "Y:/BotFlow/frontend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "Y:\\Programs\\WebStorm 2025.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Node.js.index.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;Y:/BotFlow/frontend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;Y:\\Programs\\WebStorm 2025.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="Y:\BotFlow\frontend\src\pages" />
@@ -74,7 +87,8 @@
       <workItem from="1746570426184" duration="6682000" />
       <workItem from="1746625743118" duration="363000" />
       <workItem from="1746832494052" duration="1946000" />
-      <workItem from="1747062370381" duration="6079000" />
+      <workItem from="1747062370381" duration="6959000" />
+      <workItem from="1747185992378" duration="11595000" />
     </task>
     <servers />
   </component>

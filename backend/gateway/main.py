@@ -1,7 +1,7 @@
 from dotenv import load_dotenv, find_dotenv
-from fastapi import FastAPI, Query
+from fastapi import FastAPI, Query, Depends, Body
 from fastapi.middleware.cors import CORSMiddleware
-from services import proxy_get
+from services import proxy_get, proxy_post
 import os
 
 load_dotenv(find_dotenv())
@@ -18,7 +18,7 @@ app.add_middleware(
 # Конфигурация адресов микросервисов
 YOUTUBE_URL = os.getenv("SCRAPER_YOUTUBE_URL", "http://scraper_youtube:8080")
 INSTAGRAM_URL = os.getenv("INSTAGRAM_URL", "http://scraper_instagram:8082")
-
+TWITCH_URL = os.getenv("TWITCH_URL", "http://scraper_twitch:8091")
 @app.get("/status")
 def read_status():
     return {"status": "OK", "message": "Gateway работает"}
@@ -34,6 +34,15 @@ async def instagram_profile(username: str = Query(...)):
 @app.get("/api/instagram/post")
 async def instagram_post(shortcode: str = Query(...)):
     return await proxy_get(f"{INSTAGRAM_URL}/instagram/post", params={"shortcode": shortcode})
+
+# Twitch
+@app.post("/api/twitch/start")
+async def twitch_start(data: dict = Body(...)):
+    return await proxy_post(f"{TWITCH_URL}/twitch/start", json=data)
+
+@app.get("/api/twitch/messages")
+async def twitch_messages():
+    return await proxy_get(f"{TWITCH_URL}/twitch/messages")
 
 if __name__ == "__main__":
     import uvicorn

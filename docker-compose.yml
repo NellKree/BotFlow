@@ -40,6 +40,18 @@ services:
     dns:
       - 1.1.1.1
 
+  scraper_twitch:
+    build: ./backend/scraper_twitch
+    container_name: botflow-twitch
+    ports:
+      - "${TWITCH_PORT}:8091"
+    env_file:
+      - .env
+    depends_on:
+      - db
+    networks:
+      - botnet
+
 
   frontend:
     build: ./frontend
