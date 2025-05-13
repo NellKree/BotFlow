@@ -6,18 +6,40 @@ services:
       - "${GATEWAY_PORT}:8000"
     env_file:
       - .env
+    depends_on:
+      - scraper_youtube
+      - scraper_instagram
     networks:
       - botnet
 
-  youtube_scraper:
+  scraper_youtube:
     build: ./backend/scraper_youtube
     container_name: botflow-youtube
     ports:
       - "${YOUTUBE_PORT}:8080"
     env_file:
       - .env
+    depends_on:
+      - db
     networks:
       - botnet
+    dns:
+      - 8.8.8.8
+
+  scraper_instagram:
+    build: ./backend/scraper_instagram
+    container_name: botflow-instagram
+    ports:
+      - "${INSTAGRAM_PORT}:8082"
+    env_file:
+      - .env
+    depends_on:
+      - db
+    networks:
+      - botnet
+    dns:
+      - 1.1.1.1
+
 
   frontend:
     build: ./frontend
@@ -31,5 +53,35 @@ services:
     stdin_open: true
     tty: true
 
+  bot_detector:
+    build: ./backend/bot_detector
+    container_name: botflow-detector
+    ports:
+      - "8090:8090"
+    depends_on:
+      - db
+    env_file:
+      - .env
+    networks:
+      - botnet
+
+  db:
+    image: postgres:15
+    container_name: botflow-db
+    environment:
+      POSTGRES_DB: botflow
+      POSTGRES_USER: bot
+      POSTGRES_PASSWORD: botpass
+    ports:
+      - "${DB_PORT}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - botnet
+
+volumes:
+  pgdata:
+
 networks:
   botnet:
+

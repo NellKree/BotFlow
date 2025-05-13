@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3340c56d-7eab-4c01-a193-b7c7876a5314" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../gateway/services.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../scraper_instagram/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../scraper_instagram/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../scraper_instagram/.idea/scraper_instagram.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../scraper_instagram/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../scraper_instagram/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../scraper_instagram/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../scraper_instagram/crud.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../scraper_instagram/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../scraper_instagram/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../scraper_instagram/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../scraper_youtube/crud.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../scraper_youtube/database.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../scraper_youtube/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../frontend/src/components/Footer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../frontend/src/components/Navbar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../frontend/src/pages/Home.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../frontend/src/pages/InstagramPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../frontend/src/pages/YouTubePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/BotFlow.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/BotFlow.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gateway/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../gateway/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gateway/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../gateway/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scraper_youtube/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../scraper_youtube/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scraper_youtube/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../scraper_youtube/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/src/App.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2x1HScVXIEA5fWmi2j6gQ9d5vkV" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "dev",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-PY-251.23774.444" />
+        <option value="bundled-python-sdk-890ed5b35930-d9c5bdb153f4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.23774.444" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3340c56d-7eab-4c01-a193-b7c7876a5314" name="Changes" comment="" />
+      <created>1747098660848</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1747098660848</updated>
+      <workItem from="1747098661905" duration="4000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

@@ -1,6 +1,6 @@
 fastapi
 uvicorn
-google-api-python-client
-python-dotenv
 sqlalchemy
 psycopg2-binary
+python-dotenv
+pydantic

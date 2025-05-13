@@ -1,6 +1,7 @@
 fastapi
 uvicorn
-google-api-python-client
+instaloader
 python-dotenv
 sqlalchemy
 psycopg2-binary
+
